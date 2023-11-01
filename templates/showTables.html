@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if url_list %}
+<div style="display:flex;justify-content:center;align-items:center;margin-top:30px">
+    <table style="padding:10px">
+        <tr>
+            <th style="text-align:left;padding:10px">Short Url</th>
+            <th style="text-align:left;padding:10px">Long Url</th>
+        </tr>
+    {% for iter_url in url_list %}
+    <tr>
+        <td><a href="{{ base }}{{ iter_url.short_url }}">{{ iter_url.short_url }}</a></td>
+        <td><div href="{{ iter_url.original_url }}">{{ iter_url.original_url }}</div></td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>No urls are available.</p>
+    {% endif %}
+    <br>
+</div>
+{% endblock content %}
